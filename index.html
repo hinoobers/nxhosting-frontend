@@ -5,17 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nexus Hosting</title>
     <link rel="stylesheet" href="css/style.css">
+    <script src="scripts/main.js" defer></script>
 </head>
 <body>
     <header>
         <nav>
             <div id="logo">
-                <p>Nexus Hosting</p>
+                <a href="index.html">Nexus Hosting</a>
             </div>
             <div id="btns">
                 <a href="status.html">Status</a>
-                <a href="auth/login.html">Login</a>
-                <a href="auth/signup.html">Sign Up</a>
+                <a href="auth/login.html" class="auth-btn">Login</a>
+                <a href="auth/signup.html" class="auth-btn">Sign Up</a>
             </div>
         </nav>
     </header>
@@ -25,7 +26,7 @@
             <img src="img/minecraft.jpg" alt="Minecraft">
             <h2>Minecraft</h2>
             <p>Start your own Minecraft server today!</p>
-            <button>View plans</button>
+            <button onclick="window.location.href='games/minecraft.html'">View plans</button>
         </div>
         <div class="game">
             <img src="img/discord.jpg" alt="Discord">
@@ -36,7 +37,7 @@
     </div>
 
     <footer>
-        <p>&copy; 2020 Nexus Hosting</p>
+        <p>&copy; 2024 Nexus Hosting</p>
     </footer>
 
 </body>

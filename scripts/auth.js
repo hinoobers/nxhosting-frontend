@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const email = loginForm.querySelector('#email').value;
             const password = loginForm.querySelector('#password').value;
 
-            fetch("/api/login", {
+            fetch("http://srv2.byenoob.com:5080/api/login", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -21,9 +21,16 @@ document.addEventListener('DOMContentLoaded', function() {
             }).then(response => {
                 return response.json();
             }).then(data => {
-                if(data.success) {
+                if(!data.success) {
                     alert(data.error);
-                } else {}
+                } else {
+                    alert(data.message);
+
+                    localStorage.setItem('token', data.token);
+                    localStorage.setItem("email", email);
+
+                    window.location.href = "../index.html";
+                }
             }).catch(error => {
                 console.error('Login failed', error);
             });
@@ -38,7 +45,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const username = signupForm.querySelector('#username').value;
             const password = signupForm.querySelector('#password').value;
 
-            fetch("/api/signup", {
+            fetch("http://srv2.byenoob.com:5080/api/signup", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -51,9 +58,11 @@ document.addEventListener('DOMContentLoaded', function() {
             }).then(response => {
                 return response.json();
             }).then(data => {
-                if(data.success) {
+                if(!data.success) {
                     alert(data.error);
-                } else {}
+                } else {
+                    alert(data.message);
+                }
             }).catch(error => {
                 console.error('Signup failed', error);
             });
